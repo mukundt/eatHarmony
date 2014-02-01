@@ -11,11 +11,10 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" >
     <div class="top-bar"></div>
 
     <div class="welcome-container text-center coming-soon-wrap">
-
       <h1>
         <img src="images/EatHarmonyLogo.png"  height="85" >
 
@@ -36,12 +35,17 @@
   </div>
 
   <script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
-      document.onload = function(){
-        $("#search").ready(function(){
-          $("#search").alert("blah"); 
-       });
-      }
+    <!-- document.getElementById( 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                $("#search").val('bla');
+                $("form").appendTo("wrap")
+                $("h4").remove();
+                <!--$("form").animate({height: '-500px'});-->
+            }
+        });
+     });
   </script>
 
 
