@@ -63,88 +63,10 @@
       margin-top: 90px;
     }
 
-    .frowny-face {
-      text-align: center;
-      font-size: 130px;
-      color: #919191;
-      line-height: 1.1;
-      margin-top: 90px;
-      margin-bottom: 70px;
-    }
-
     .welcome-container h1 {
       margin-bottom: 1em;
     }
 
-    .btn-primary {
-        background-color: #7FB141;
-        border-color: #648C33;
-        color: #FFFFFF;
-    }
-
-    input, button, select, textarea {
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-    }
-    button, html input[type="button"], input[type="reset"], input[type="submit"] {
-        cursor: pointer;
-    }
-    button, select {
-        text-transform: none;
-    }
-    button, input {
-        line-height: normal;
-    }
-    button, input, select, textarea {
-        font-family: inherit;
-        font-size: 100%;
-        margin: 0;
-    }
-
-    .btn {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        border-color: transparent;
-        border-image: none;
-        border-radius: 0 0 0 0;
-        border-style: solid;
-        border-width: 0 0 3px;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.42857;
-        margin-bottom: 0;
-        padding: 8px 20px;
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-        text-decoration: none;
-    }
-
-    .btn-primary {
-        background-color: #7FB141;
-        border-color: #648C33;
-        color: #FFFFFF;
-    }
-
-
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active {
-        background-color: #729E3A;
-        border-color: #496626;
-        color: #fff;
-    }
-
-    .btn:hover,
-    .btn:focus {
-        text-decoration: none;
-    }
 
     .footer {
       position: relative;
