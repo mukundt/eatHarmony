@@ -187,13 +187,15 @@
            this.recipeName=data.recipeName;
            
        }
-       $.getJSON(url,function(contents){
+
+       function createRecipeArray(contents){
            var recipeNumber= contents.totalMatchCount;
            var recipeArray= new Array();
            for (var i=0, i<recipeNumber, i++){
 	       var singleRecipe=new ClassRecipe(data.matches[i]);
 	       recipeArray.push(singleRecipe);
 	   return recipeArray;
+
 	   }
        }
 
