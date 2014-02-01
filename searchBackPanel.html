@@ -84,10 +84,18 @@
 
 <script>
 
+
+for (var iter = 0; iter < 6; iter++)
+{
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/"+recipes[iter].id+"?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&callback=?", function(recipe) {
+
+/*
 $.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&callback=?", function(recipe) {
+*/
 
 var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe2");
+var ul = document.getElementById(ingred[iter]);
 
 for(var i=0; i<list.length; i++) {
     var li = document.createElement("li");
@@ -97,7 +105,7 @@ for(var i=0; i<list.length; i++) {
   }
 
 });
-
+}
 
 </script>
 
@@ -118,9 +126,7 @@ for(var i=0; i<list.length; i++) {
 
           <div class="resultContainer">
               <div class="resultDiv">
-                  <span id = "r1"></span><br />
-                  <img id = "i1"></span><br />
-                  <span id = "recipe1"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <ul id = "recipe1"></ul><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
                </div>
             <div class="resultDiv"> 
@@ -128,30 +134,21 @@ for(var i=0; i<list.length; i++) {
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
-                  <span id = "r3"></span><br />
-                  <img id = "i3"></span><br />
-                  <span id = "recipe3"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <ul id = "recipe3"></ul><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
           </div>
           <div class="resultContainer">
               <div class="resultDiv">
-                  <span id = "r4"></span><br />
-                  <img id = "i4"></span><br />
-                  <span id = "recipe4"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <ul id = "recipe4"></ul><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
-                 <span id = "r5"></span><br />
-                 <img id = "i5"></span><br />
-                  <span id = "recipe5"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <ul id = "recipe5"></ul><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
-                  <span id = "r6">
-                  <img id = "i6"></span><br />
-              <span id = "r6"></span><br />
-                  <span id = "recipe6"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <ul id = "recipe6"></ul><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
           </div>
