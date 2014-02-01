@@ -189,7 +189,8 @@
      
      
       <h3>
-      <span id="ingredients"></span><br />
+      <ul id="ingredients">
+      </ul>
       </h3>
     
     </div>
@@ -210,8 +211,19 @@ if (recipe.totalTime != null)
 document.getElementById("time").innerHTML=recipe.totalTime;
 }
 document.getElementById("name").innerHTML=recipe.name;
-document.getElementById("ingredients").innerHTML=recipe.ingredientLines;
 document.getElementById("url").src=recipe.images[0].hostedLargeUrl; 
+
+var list = recipe.ingredientLines;
+list = list.split(',');
+var ul = document.getElementById("ingredients");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
 });
 
 
