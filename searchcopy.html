@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+  <meta charset="utf-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Welcome</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="wrap text-center" >
+
+      <div id = "logo">
+      <h1>
+        <img src="images/EatHarmonyLogo.png"  height="85" >
+
+      </h1>
+      </div>
+      <h4 >
+        Matching lonely single ingredients. 
+      </h4>
+
+      <form> 
+        <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
+      </form>
+
+        <script type='text/javascript'>
+    <!-- document.getElementById( 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                debugger;
+                var ingreds = $("#search").val();
+                var ingredients = ingreds.split(',');
+                var url = parse(ingredients);
+                <!-- $("h4").text(url) -->
+                $("#logo").animate({top: 20}, 2000);
+                $("form").animate({top: $(document).height()/2 }, 2000);
+            }
+        });
+      });
+
+      function parse(ingred)
+      {
+        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&allowedIngredient[]='
+        for (var i = 0; i < ingred.length-1; i++)
+        {
+          var rec = ingred[i].trimLeft();
+          rec = rec.trimRight();
+          api = api + rec + '&allowedIngredient[]='
+        }
+        rec = ingred[ingred.length-1].trimLeft();
+        rec = rec.trimRight();
+        api = api + rec
+        return api
+      }
+
+  </script>
+
+</body>
+</html>
