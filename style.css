@@ -24,13 +24,10 @@
 
     .wrap {
       height: 100%;
-      position: relative;
-    }
-
-    .logo{
       margin-top: 15%;
       position: relative;
     }
+
 
     form{
       width:500px;
