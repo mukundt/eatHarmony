@@ -27,8 +27,8 @@
         <span><input type="text" id = "search" class="search rounded" placeholder="Lonely ingredients here..."></span>
       </form>
       <script>
-        $('#search').ready(function(){
-            $('#search').keypress(function(e){
+        $("#search").ready(function(){
+            $("#search").keypress(function(e){
                 if(e.which == 13){//Enter key pressed
                     $("#search").animate({ 
                       top: "-=30px",
