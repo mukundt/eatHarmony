@@ -31,7 +31,7 @@
     h4,.h4{font-size:24px;line-height:25px}
     h5,.h5{font-size:20px;line-height:24px}
     h6,.h6{font-size:18px;line-height:24px}
-
+    ul li { text-align: left;}
     a{color:#3282e6;}
     a:hover,a:focus{color:#165db5;text-decoration:underline}
 
@@ -173,23 +173,27 @@
 <body>
   <div class="wrap">
     <div class="top-bar"></div>
-
-    <div class="welcome-container text-center coming-soon-wrap">
-
+<div class="welcome-container text-center coming-soon-wrap">
+      <h1>
+	<span id="name"></span><br />
+      </h1>
+      <h2>
+	Time to make:  <span id="time">Unknown :(</span><br />
+      </h2>
+      <img id = "url">
       <h2>
 	
       Ingredients: 
 
       </h2>
-      
-      <img id = "url">
      
-      <p>
-      <span id="ingredients"></span><br />
-      </p>
+     
+      
+      <ul id="ingredients"> </ul>
+     
     
     </div>
-  </div>
+</div>
 
   <div class="footer">
     Copyright &copy; Countable Irrationals&nbsp;&nbsp;|&nbsp;&nbsp;TartanHacks 2014
@@ -201,8 +205,23 @@
 
 $.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&callback=?", function(recipe) {
 
-document.getElementById("ingredients").innerHTML=recipe.ingredientLines;
+if (recipe.totalTime != null)
+{
+document.getElementById("time").innerHTML=recipe.totalTime;
+}
+document.getElementById("name").innerHTML=recipe.name;
 document.getElementById("url").src=recipe.images[0].hostedLargeUrl; 
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("ingredients");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
 });
 
 
