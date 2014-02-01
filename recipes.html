@@ -188,20 +188,16 @@
     Copyright &copy; Countable Irrationals&nbsp;&nbsp;|&nbsp;&nbsp;TartanHacks 2014
   </div>
 
-  <script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-    redirectToLogin = function() {
-      window.location.href = "https://" + window.location.hostname + ":2083";
-    }
+<script>
 
-  </script>
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&callback=?", function(recipe) {
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+document.getElementById("ingredients").innerHTML=recipe.ingredientLines;
+ 
+});
 
-var recipe = $.get("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7");
-
-document.getElementById("ingredients").innerHTML=recipe.ingredientLines
 
 </script>
 

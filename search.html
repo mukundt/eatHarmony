@@ -11,33 +11,21 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" >
     <div class="top-bar"></div>
 
     <div class="welcome-container text-center coming-soon-wrap">
-
       <h1>
-        eatHarmony
+        <img src="images/EatHarmonyLogo.png"  height="85" >
+
       </h1>
       <h4>
         Matching lonely single ingredients. 
       </h4>
       <div class = "light">
       <form>
-        <span><input type="text" id = "search" class="search rounded" placeholder="Lonely ingredients here..."></span>
+        <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
       </form>
-      <script>
-        $('#search').ready(function(){
-            $('#search').keypress(function(e){
-                if(e.which == 13){//Enter key pressed
-                    $("#search").animate({ 
-                      top: "-=30px",
-                    }, duration );
-                }
-            });
-
-        });
-      </script>
     </div>
   </div>
 
@@ -47,8 +35,17 @@
   </div>
 
   <script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
-
+    <!-- document.getElementById( 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                $("#search").val('bla');
+                $("form").appendTo("wrap")
+                $("h4").remove();
+                <!--$("form").animate({height: '-500px'});-->
+            }
+        });
+     });
   </script>
 
 

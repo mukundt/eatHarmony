@@ -32,6 +32,7 @@
       min-height: 100%;
       .display: table;
       .height: 100%;
+      position = absolute
     }
 
     .top-bar {
@@ -156,6 +157,7 @@
     form{
       width:500px;
       margin:0 auto;
+      position:relative;
     }
     .search { 
       width: 300px;
