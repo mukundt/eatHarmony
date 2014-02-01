@@ -31,7 +31,7 @@
     h4,.h4{font-size:24px;line-height:25px}
     h5,.h5{font-size:20px;line-height:24px}
     h6,.h6{font-size:18px;line-height:24px}
-
+    ul li { text-align: left;}
     a{color:#3282e6;}
     a:hover,a:focus{color:#165db5;text-decoration:underline}
 
@@ -188,10 +188,9 @@
       </h2>
      
      
-      <h3>
-      <ul id="ingredients">
-      </ul>
-      </h3>
+      
+      <ul id="ingredients"> </ul>
+     
     
     </div>
 </div>
@@ -214,7 +213,6 @@ document.getElementById("name").innerHTML=recipe.name;
 document.getElementById("url").src=recipe.images[0].hostedLargeUrl; 
 
 var list = recipe.ingredientLines;
-list = list.split(',');
 var ul = document.getElementById("ingredients");
 
 for(var i=0; i<list.length; i++) {

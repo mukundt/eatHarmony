@@ -22,7 +22,7 @@
     h4,.h4{font-size:24px;line-height:25px}
     h5,.h5{font-size:20px;line-height:24px}
     h6,.h6{font-size:18px;line-height:24px}
-
+    ul li {display: inline-block; text-align: left;}
     a{color:#3282e6;}
     a:hover,a:focus{color:#165db5;text-decoration:underline}
 
