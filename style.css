@@ -73,6 +73,11 @@ input[type=text]{
   background-color:white;
 }
 
+.image{
+  width: 200px;
+  height: auto;
+}
+
 .resultDiv {
   background-color:white;
   height:70%;

@@ -25,8 +25,11 @@
                 $(".logo").animate({'height':'50px','width':'80%'}, 1000);
                 $("#slides").slideDown();
                 $("h4").fadeOut(); 
-                document.getElementById(titles[0]).innerHTML="CHIKHUN";
-                document.getElementById(ingred[0]).innerHTML="chicken, more chicken, chicken stock, chicken bone";
+                <!--document.getElementById(titles[0]).innerHTML="CHIKHUN";
+                debugger;
+                document.getElementById(images[0]).src = "http://upload.wikimedia.org/wikipedia/commons/5/57/Chicken_-_melbourne_show_2005.jpg"
+                $("i1").addClass('image');
+                document.getElementById(ingred[0]).innerHTML="chicken, more chicken, chicken stock, chicken bone";-->
 
                 /*$("form").animate({top: $(document).height()/2}, 2000);*/
             }
@@ -34,6 +37,7 @@
       });
 
       var titles = new Array("r1","r2","r3","r4","r5","r6");
+      var images = new Array("i1","i2","i3","i4","i5","i6")
       var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6")
 
 
@@ -94,16 +98,19 @@
           <div class="resultContainer">
               <div class="resultDiv">
                   <span id = "r1"></span><br />
+                  <img id = "i1"></span><br />
                   <span id = "recipe1"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
                </div>
             <div class="resultDiv">
                   <span id = "r2"></span><br />
+                  <img id = "i2"></span><br />
                   <span id = "recipe2"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
                   <span id = "r3"></span><br />
+                  <img id = "i3"></span><br />
                   <span id = "recipe3"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
@@ -111,16 +118,19 @@
           <div class="resultContainer">
               <div class="resultDiv">
                   <span id = "r4"></span><br />
+                  <img id = "i4"></span><br />
                   <span id = "recipe4"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
                  <span id = "r5"></span><br />
+                 <img id = "i5"></span><br />
                   <span id = "recipe5"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
             <div class="resultDiv">
                   <span id = "r6">
+                  <img id = "i6"></span><br />
               <span id = "r6"></span><br />
                   <span id = "recipe6"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
