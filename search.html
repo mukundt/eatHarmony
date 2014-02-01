@@ -15,12 +15,13 @@
 <body>
   <div class="wrap text-center" >
 
-      <div id = "logo">
+      <div class = "logo">
       <h1>
         <img src="images/EatHarmonyLogo.png"  height="85" >
 
       </h1>
       </div>
+
       <h4 >
         Matching lonely single ingredients. 
       </h4>
@@ -29,35 +30,39 @@
         <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
       </form>
 
+
         <script type='text/javascript'>
-    <!-- document.getElementById( 'hostname' ).innerText = window.location.hostname; -->
+    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
       $("form").ready(function(){
         $("form").keypress(function(e) {
             if(e.which == 13) {
                 e.preventDefault();
-                debugger;
                 var ingreds = $("#search").val();
                 var ingredients = ingreds.split(',');
-                var url = parse(ingredients);
-                <!-- $("h4").text(url) -->
-                $("#logo").animate({top: 20}, 2000);
+                var urls = parse(ingredients);
+                $.ajax({
+                  url: urls
+                })
+                $("wrap").animate({'marginTop': '-50px'}, 2000);
                 $("form").animate({top: $(document).height()/2 }, 2000);
+                $("h4").fadeOut(2000); 
             }
         });
       });
 
       function parse(ingred)
       {
-        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&allowedIngredient[]='
+        var api = 'http://api.bigoven.com/recipes?any_kw='
         for (var i = 0; i < ingred.length-1; i++)
         {
           var rec = ingred[i].trimLeft();
           rec = rec.trimRight();
-          api = api + rec + '&allowedIngredient[]='
+          api = api + rec + '&any_kw='
         }
         rec = ingred[ingred.length-1].trimLeft();
         rec = rec.trimRight();
         api = api + rec
+        api = api + 'pg=1&rpp=15&api_key=dvxP3Ib8x153K71alv2yhXp8U349s103'
         return api
       }
 
