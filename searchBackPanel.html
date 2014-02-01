@@ -129,6 +129,48 @@ for(var i=0; i<list.length; i++) {
 
 });
 
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe4");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe5");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe6");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
 
 
 </script>
