@@ -1,15 +1,10 @@
 body {
-
+  background-color: #E9E9E9;
   color: #424242;
   margin: 0;
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:14px;
   line-height:1.428571429;
-  background-image:url('/images/pattern.jpg');
-  image{
-    opacity: 0.5;
-  }
-  background-repeat: repeat-both;
 }
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-weight:normal;line-height:1.1;color:#333}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
@@ -71,25 +66,16 @@ input[type=text]{
 
 .resultDiv {
   background-color:white;
-  height:70%;
+  height:360px;
   width:250px;
   margin:10px;
   display:inline-block;
-  margin: 50px auto;
-  padding: 20px 20px;
-  border: 2px dashed #B0C4DE;
-  box-shadow: 0 0 0 6px #B0C4DE, 0 0 1px 7px 
-  darken(#B0C4DE, 10);
-  border-radius:15px; 
-  -moz-border-radius:15px; 
-  -webkit-border-radius:15px; 
 }
 
 .resultContainer {
   height:440px;
   width:100%;
-  padding:30px;
-
+  padding:10px;
 }
 
 #slides {
@@ -100,4 +86,31 @@ input[type=text]{
 
 #slides, .slides-container {
   display: none;
+}
+
+.slides-navigation {
+  margin: 0 auto;
+  z-index: 100;
+  top: 40%;
+}
+
+.slides-navigation a {
+  position: absolute;
+  display: block;
+  font-family:'Courier New';
+  text-decoration:none;
+  color:white;
+  font-size:80px;
+  font-weight:100;
+}
+
+.slides-navigation a:hover {
+  color:black;
+}
+
+.slides-navigation a.prev {
+  left: 10px;
+}
+.slides-navigation a.next {
+  right: 10px;
 }

@@ -21,6 +21,7 @@
 
       </h1>
       </div>
+
       <h4 >
         Matching lonely single ingredients. 
       </h4>
@@ -38,27 +39,35 @@
                 e.preventDefault();
                 var ingreds = $("#search").val();
                 var ingredients = ingreds.split(',');
-                var url = parse(ingredients);
-                $("wrap").animate({marginTop: -100}, 2000);
-                $("form").animate({top: $(document).height()/2-50 }, 2000);
+                var urls = parse(ingredients);
+                $.ajax({
+                  url: urls, 
+                  jsonp: "callback",
+                  dataType: "jsonp",
+                  success: function(contents) {
+                    <!--MAYA'S STUFF'-->
+                }
+                });
+                $("wrap").animate({'marginTop': '-50px'}, 2000);
+                $("form").animate({top: $(document).height()/2 }, 2000);
                 $("h4").fadeOut(2000); 
-                <!--$("h4").remove();-->
             }
         });
       });
 
       function parse(ingred)
       {
-        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&allowedIngredient[]='
+        var api = 'http://api.bigoven.com/recipes?any_kw='
         for (var i = 0; i < ingred.length-1; i++)
         {
           var rec = ingred[i].trimLeft();
           rec = rec.trimRight();
-          api = api + rec + '&allowedIngredient[]='
+          api = api + rec + '&any_kw='
         }
         rec = ingred[ingred.length-1].trimLeft();
         rec = rec.trimRight();
         api = api + rec
+        api = api + 'pg=1&rpp=15&api_key=dvxP3Ib8x153K71alv2yhXp8U349s103'
         return api
       }
 
