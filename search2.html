@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+  <meta charset="utf-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>eatHarmony</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <script src="http://eatharmony.gdhacks.com/superslides/dist/jquery.superslides.js" type="text/javascript"></script>
+ <script type='text/javascript'>
+    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                var ingreds = $("#search").val();
+                var ingredients = ingreds.split(',');
+                var url = parse(ingredients);
+                $(".wrap").animate({'margin-top': '0'}, 2000);
+                $(".logo").animate({'height':'50px','width':'80%'}, 1000);
+                $("#slides").slideDown();
+                $("h4").fadeOut(); 
+                document.getElementById(titles[0]).innerHTML="CHIKHUN";
+                document.getElementById(ingred[0]).innerHTML="chicken, more chicken, chicken stock, chicken bone";
+
+                /*$("form").animate({top: $(document).height()/2}, 2000);*/
+            }
+        });
+      });
+
+      var titles = new Array("r1","r2","r3","r4","r5","r6");
+      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6")
+
+
+      function displayRecipes(recipeArray)
+      {
+        for (var i = 0; i < 6; i++)
+        {
+          $(titles[i]).text($(this).data(recipeArray[i].recipeName));
+          var ing = recipeArray[i].ingredients;
+          var text = ""
+          for (var j = 0; j < ing.length; j++)
+          {
+            text = text + ing[j] + ", "
+          }
+          $(ingred[i]).text($(this).data(text));
+        }
+      }
+
+      function parse(ingred)
+      {
+        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&allowedIngredient[]='
+        for (var i = 0; i < ingred.length-1; i++)
+        {
+          var rec = ingred[i].trimLeft();
+          rec = rec.trimRight();
+          api = api + rec + '&allowedIngredient[]='
+        }
+        rec = ingred[ingred.length-1].trimLeft();
+        rec = rec.trimRight();
+        api = api + rec
+        return api
+      }
+
+    $(function() {
+      $("#slides").superslides({
+        hashchange: true,
+        animation_speed: 'slow'
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="wrap text-center" >
+
+      <div class = "logo">
+        <a href="http://eatharmony.gdhacks.com/searchtest.html"><img src="images/EatHarmonyLogo.png" src=""></a>
+      </div>
+
+      <h7 >
+        Where single ingredients mingle. 
+      </h7>
+
+      <div id="slides">
+        <div class="slides-container">
+
+          <div class="resultContainer">
+              <div class="resultDiv">
+                  <span id = "r1"></span><br />
+                  <span id = "recipe1"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+               </div>
+            <div class="resultDiv">
+                  <span id = "r2"></span><br />
+                  <span id = "recipe2"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div class="resultDiv">
+                  <span id = "r3"></span><br />
+                  <span id = "recipe3"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+          </div>
+          <div class="resultContainer">
+              <div class="resultDiv">
+                  <span id = "r4"></span><br />
+                  <span id = "recipe4"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div class="resultDiv">
+                 <span id = "r5"></span><br />
+                  <span id = "recipe5"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div class="resultDiv">
+                  <span id = "r6">
+              <span id = "r6"></span><br />
+                  <span id = "recipe6"></span><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+          </div>
+                        <nav class="slides-navigation">
+      <a href="#" class="next">
+        >
+      </a>
+      <a href="#" class="prev">
+        <
+      </a>
+    </nav>
+        </div>
+      </div>
+
+      <form> 
+        <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
+      </form>
+
+</body>
+</html>
