@@ -21,6 +21,29 @@
                 var ingreds = $("#search").val();
                 var ingredients = ingreds.split(',');
                 var url = parse(ingredients);
+                var ClassRecipe= function(data){
+                      this.id=data.id;
+                      this.ingredients=data.ingredients;
+                      this.recipeName=data.recipeName;
+                      this.image=data.smallImageUrls;
+                      this.time=data.totalTimeInSeconds;
+                    
+                 };
+       
+                       $.ajax({dataType: "jsonp",
+                      url: url,
+                      success: function(contents){
+                        debugger;
+                       var recipeNumber= contents.totalMatchCount;
+                       var recipeArray= new Array();
+                       
+                       for (var i=0; i<6; i++) {
+                         var singleRecipe=new ClassRecipe(contents.matches[i]);
+                         recipeArray.push(singleRecipe);
+                  }
+                  displayRecipes(recipeArray);},
+                  error: function(report, a, b){console.log(b);}
+                });
                 $(".wrap").animate({'margin-top': '0'}, 2000);
                 $(".logo").animate({'height':'50px','width':'80%'}, 1000);
                 $("#slides").slideDown();
@@ -35,9 +58,9 @@
         });
       });
 
-      var titles = new Array("r1","r2","r3","r4","r5","r6");
-      var images = new Array("i1","i2","i3","i4","i5","i6");
-      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6");
+var titles = new Array("r1","r2","r3","r4","r5","r6");
+      var images = new Array("i1","i2","i3","i4","i5","i6")
+      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6")
 
 
       function displayRecipes(recipeArray)
@@ -54,6 +77,8 @@
           $(ingred[i]).text($(this).data(text));
         }
       }
+
+
 
       function parse(ingred)
       {
