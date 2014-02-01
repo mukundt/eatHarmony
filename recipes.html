@@ -199,9 +199,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 
-var recipe = $.get("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7");
+$.get("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7", function(data) {
+ var recipe = data;
+ document.getElementById("ingredients").innerHTML=recipe.ingredientLines;
+});
 
-document.getElementById("ingredients").innerHTML=recipe.ingredientLines
 
 </script>
 
