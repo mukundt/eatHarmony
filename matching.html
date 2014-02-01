@@ -182,24 +182,43 @@
 
      <script>
        var ClassRecipe= function(data){
-           this.id=data.id;
-           this.ingredients=data.ingredients;
-           this.recipeName=data.recipeName;
-           
+          this.id=data.id;
+          this.ingredients=data.ingredients;
+          this.recipeName=data.recipeName;
        }
+					
        $.getJSON(url,function(contents){
            var recipeNumber= contents.totalMatchCount;
            var recipeArray= new Array();
            for (var i=0, i<recipeNumber, i++){
 	       var singleRecipe=new ClassRecipe(data.matches[i]);
-	       recipeArray.push(singleRecipe);
-	   return recipeArray;
+	       recipeArray.push(singleRecipe);}
+	   return recipeArray;)}
+
+       function sortRecipeArray(recipeArray,parameter){
+	   arrLen=recipeArray.length
+	   if (recipeArray.length < 2)
+	   {
+	      return recipeArray;
 	   }
-       }
+	   else
+	   {
+	      var parameterArray=new Array();
+	      for (var recipeIndex=0, recipeIndex<recipeArray.length,recipeIndex++)
+	      {
+                 parameterArray.push(recipeArray[recipeIndex].parameter)
+	      }
+	      i=recipeArray.index(recipeArray.min)
+	      return [recipeArray[i]].concat(sortRecipeArray(concat(recipeArray.slice(0,i),recipeArray.slice(i+1,arrLen),parameter))
+	   }
 
+	}
 
-
-
+					       
+	   
+	
+       
+ 
      </script>
 
     </div>

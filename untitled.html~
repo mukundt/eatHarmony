@@ -7,7 +7,7 @@
 <script type='text/javascript'>
 
 $.ajax({
-	url: "http://api.bigoven.com/recipes?any_kw=bananas&pg=1&rpp=10&api_key=dvxP3Ib8x153K71alv2yhXp8U349s103", 
+	url: "http://api.bigoven.com/recipes?any_kw=bananas&any_kw=sugar&pg=1&rpp=10&api_key=dvxP3Ib8x153K71alv2yhXp8U349s103", 
 	jsonp: "callback",
 	dataType: "jsonp",
 	success: function(data) {
