@@ -181,6 +181,25 @@
     <div class="welcome-container text-center coming-soon-wrap">
 
      <script>
+       var ClassRecipe= function(data){
+           this.id=data.id;
+           this.ingredients=data.ingredients;
+           this.recipeName=data.recipeName;
+           
+       }
+
+       function createRecipeArray(contents){
+           var recipeNumber= contents.totalMatchCount;
+           var recipeArray= new Array();
+           for (var i=0, i<recipeNumber, i++){
+	       var singleRecipe=new ClassRecipe(data.matches[i]);
+	       recipeArray.push(singleRecipe);
+	   return recipeArray;
+
+	   }
+       }
+
+
 
 
      </script>

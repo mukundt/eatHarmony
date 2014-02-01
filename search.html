@@ -15,7 +15,7 @@
 <body>
   <div class="wrap text-center" >
 
-      <div id = "logo">
+      <div class = "logo">
       <h1>
         <img src="images/EatHarmonyLogo.png"  height="85" >
 
@@ -29,19 +29,20 @@
         <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
       </form>
 
+
         <script type='text/javascript'>
-    <!-- document.getElementById( 'hostname' ).innerText = window.location.hostname; -->
+    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
       $("form").ready(function(){
         $("form").keypress(function(e) {
             if(e.which == 13) {
                 e.preventDefault();
-                debugger;
                 var ingreds = $("#search").val();
                 var ingredients = ingreds.split(',');
                 var url = parse(ingredients);
-                <!-- $("h4").text(url) -->
-                $("#logo").animate({top: 20}, 2000);
-                $("form").animate({top: $(document).height()/2 }, 2000);
+                $("wrap").animate({marginTop: -100}, 2000);
+                $("form").animate({top: $(document).height()/2-50 }, 2000);
+                $("h4").fadeOut(2000); 
+                <!--$("h4").remove();-->
             }
         });
       });
