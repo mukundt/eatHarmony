@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <meta charset="utf-8" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -124,7 +125,7 @@
         display: inline-block;
         font-size: 14px;
         font-weight: 300;
-        line-height: 1.42857;
+        line-height: 1.42857;OA
         margin-bottom: 0;
         padding: 8px 20px;
         text-align: center;
@@ -185,16 +186,48 @@
           this.id=data.id;
           this.ingredients=data.ingredients;
           this.recipeName=data.recipeName;
-       }
-					
-       $.getJSON(url,function(contents){
-           var recipeNumber= contents.totalMatchCount;
-           var recipeArray= new Array();
-           for (var i=0, i<recipeNumber, i++){
-	       var singleRecipe=new ClassRecipe(data.matches[i]);
-	       recipeArray.push(singleRecipe);}
-		
-	   return recipeArray;)}
+       };
+
+
+$(document).ready(function(){					
+       $.ajax({dataType: "jsonp",
+      url: "http://api.yummly.com/v1/api/recipes?_app_id=3738dde6&_app_key=c9d9a3b2b8bf4d47d5c23b3864fc3cf7&allowedIngredient[]=garlic",success: function(contents){
+       debugger;
+       var recipeNumber= contents.totalMatchCount;
+       var recipeArray= new Array();
+       
+       for (var i=0; i<recipeNumber; i++) {
+				 var singleRecipe=new ClassRecipe(data.matches[i]);
+				 recipeArray.push(singleRecipe);
+	}
+	return recipeArray;
+}});
+});
+
+
+       function sortRecipeArray(recipeArray,parameter){
+	   arrLen=recipeArray.length;
+	   if (recipeArray.length < 2)
+				    
+	   {
+	      return recipeArray;
+	   }
+	   else
+	   {
+	      var parameterArray=new Array();
+	      for (var recipeIndex=0; recipeIndex<recipeArray.length;recipeIndex++)
+	      {
+                 parameterArray.push(recipeArray[recipeIndex].parameter);
+	      }
+	      i=recipeArray.index(recipeArray.min);
+	
+	
+						    
+	      //return [recipeArray[i]].concat(sortRecipeArray(concat(recipeArray.slice(0,i),recipeArray.slice(i+1,arrLen),parameter));
+	   }
+
+	}
+						  
 
 					       
 	   
@@ -209,15 +242,6 @@
   <div class="footer">
     Copyright &copy; Countable Irrationals&nbsp;&nbsp;|&nbsp;&nbsp;TartanHacks 2014
   </div>
-
-  <script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
-
-    redirectToLogin = function() {
-      window.location.href = "https://" + window.location.hostname + ":2083";
-    }
-
-  </script>
 
 
 </body>
