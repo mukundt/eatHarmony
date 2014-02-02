@@ -1,207 +1,335 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
   <meta charset="utf-8" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Welcome</title>
-  <style type='text/css'>
-    html,body {
-      height: 100%;
-    }
-
-    * {
-        -moz-box-sizing: border-box;
-    }
-
-    body {
-      background-color: #ededed;
-      color: #424242;
-      margin: 0;
-      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-      font-size:14px;
-      line-height:1.428571429;
-    }
-
-    h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-weight:normal;line-height:1.1;color:#333}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
-    h1,.h1{font-size:45px;line-height:48px}
-    h2,.h2{font-size:36px;line-height:42px}
-    h3,.h3{font-size:28px;line-height:36px}
-    h4,.h4{font-size:24px;line-height:25px}
-    h5,.h5{font-size:20px;line-height:24px}
-    h6,.h6{font-size:18px;line-height:24px}
-
-    a{color:#3282e6;}
-    a:hover,a:focus{color:#165db5;text-decoration:underline}
-
-    .text-center{text-align:center}
-
-    .wrap {
-      min-height: 100%;
-      .display: table;
-      .height: 100%;
-    }
-
-    .top-bar {
-      height: 20px;
-      background: #71a100;
-      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzcxYTEwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZmExMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-      background: -moz-linear-gradient(top,  #71a100 0%, #6fa100 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#71a100), color-stop(100%,#6fa100));
-      background: -webkit-linear-gradient(top,  #71a100 0%,#6fa100 100%);
-      background: -o-linear-gradient(top,  #71a100 0%,#6fa100 100%);
-      background: -ms-linear-gradient(top,  #71a100 0%,#6fa100 100%);
-      background: linear-gradient(to bottom,  #71a100 0%,#6fa100 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#71a100', endColorstr='#6fa100',GradientType=0 );
-    }
-
-    :root .top-bar {
-      filter: none \0/IE9;
-    }
-
-    .welcome-container {
-      width: 500px;
-      margin: 0 auto;
-      overflow: auto;
-      padding-bottom: 60px;
-    }
-
-    .coming-soon-wrap {
-      margin-top: 90px;
-    }
-
-    .frowny-face {
-      text-align: center;
-      font-size: 130px;
-      color: #919191;
-      line-height: 1.1;
-      margin-top: 90px;
-      margin-bottom: 70px;
-    }
-
-    .welcome-container h1 {
-      margin-bottom: 1em;
-    }
-
-    .btn-primary {
-        background-color: #7FB141;
-        border-color: #648C33;
-        color: #FFFFFF;
-    }
-
-    input, button, select, textarea {
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-    }
-    button, html input[type="button"], input[type="reset"], input[type="submit"] {
-        cursor: pointer;
-    }
-    button, select {
-        text-transform: none;
-    }
-    button, input {
-        line-height: normal;
-    }
-    button, input, select, textarea {
-        font-family: inherit;
-        font-size: 100%;
-        margin: 0;
-    }
-
-    .btn {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        border-color: transparent;
-        border-image: none;
-        border-radius: 0 0 0 0;
-        border-style: solid;
-        border-width: 0 0 3px;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.42857;
-        margin-bottom: 0;
-        padding: 8px 20px;
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-        text-decoration: none;
-    }
-
-    .btn-primary {
-        background-color: #7FB141;
-        border-color: #648C33;
-        color: #FFFFFF;
-    }
+  <title>eatHarmony</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="icon" type="image/png" href="http://eatharmony.gdhacks.com/images/eHarmonyfavicon.png">
+ <script src="superslides/dist/jquery.superslides.js" type="text/javascript"></script>
+ <script type='text/javascript'>
+    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                var ingreds = $("#search").val();
+                var ingredients = ingreds.split(',');
+                var url = parse(ingredients);
+                var ClassRecipe= function(data){
+                      this.id=data.id;
+                      this.ingredients=data.ingredients;
+                      this.recipeName=data.recipeName;
+                      this.image=data.smallImageUrls;
+                      this.time=data.totalTimeInSeconds;
+                    
+                 };
+       
+                       $.ajax({dataType: "jsonp",
+                      url: url,
+                      success: function(contents){
+                        debugger;
+                       var recipeNumber= contents.totalMatchCount;
+                       var recipeArray= new Array();
+                       
+                       for (var i=0; i<6; i++) {
+                         var singleRecipe=new ClassRecipe(contents.matches[i]);
+                         recipeArray.push(singleRecipe);
+                  }
+                  displayRecipes(recipeArray);
 
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active {
-        background-color: #729E3A;
-        border-color: #496626;
-        color: #fff;
-    }
 
-    .btn:hover,
-    .btn:focus {
-        text-decoration: none;
-    }
 
-    .login-container {
-      text-align: right;
-      margin: 20px;
-    }
 
-    .footer {
-      position: relative;
-      margin-top: -60px; /* negative value of footer height */
-      height: 60px;
-      clear:both;
-      text-align: center;
-      font-size: 14px;
-    }
-  </style>
+},
+                  error: function(report, a, b){console.log(b);}
+                });
+
+                $(".wrap").animate({'margin-top': '0'}, 2000);
+                $(".logo").animate({'height':'50px','width':'80%','padding-top':'20px','padding-bottom':'0px'}, 1000);
+                $(".bottomBar").animate({'padding-bottom':'0px'},2000);                      
+                $("#slides").slideDown();
+                $("h4").fadeOut(); 
+
+                /*$("form").animate({top: $(document).height()/2}, 2000);*/
+            }
+        });
+      });
+
+      var titles = new Array("r1","r2","r3","r4","r5","r6");
+      var images = new Array("i1","i2","i3","i4","i5","i6");
+      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6");
+      var times = new Array("t1","t2","t3","t4","t5","t6")
+
+
+      function displayRecipes(recipeArray)
+      {
+        for (var i = 0; i < 6; i++)
+        {
+          var rec = recipeArray[i];
+          document.getElementById(titles[i]).innerHTML=rec.recipeName;
+          var ing = rec.ingredients;
+          var text = ""
+          for (var j = 0; j < ing.length; j++)
+          {
+            text = text + ing[j] + ", "
+          }
+          if (ingred.length > 0)
+          {
+            document.getElementById(ingred[i]).innerHTML=text;
+          document.getElementById(images[i]).src = rec.image[0];
+                $(function() {
+                  $(images[i]).width(200);
+                });
+          }
+          document.getElementById(times[i]).innerHTML="Time: " + parseFloat(rec.time/60).toString() + " min";
+          
+        }
+      }
+
+      function parse(ingred)
+      {
+        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&allowedIngredient[]='
+        for (var i = 0; i < ingred.length-1; i++)
+        {
+          var rec = ingred[i].trimLeft();
+          rec = rec.trimRight();
+          api = api + rec + '&allowedIngredient[]='
+        }
+        rec = ingred[ingred.length-1].trimLeft();
+        rec = rec.trimRight();
+        api = api + rec
+        return api
+      }
+    $(function() {
+      $("#slides").superslides({
+        hashchange: true,
+        animation_speed: 'slow' , pagination:false
+      });
+    });
+  </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top-bar"></div>
 
-    <div class="login-container">
-      <a href="#" onclick='redirectToLogin();' class="btn btn-primary">Login</a>
-    </div>
+<script>
 
-    <div class="welcome-container text-center coming-soon-wrap">
+/*$.getJSON("http://api.yummly.com/v1/api/recipe/"+recipes[0].id+"?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+*/
 
-      <h1>
-        eatHarmony
-      </h1>
-      <h4>
-        A hot dating site for single ingredients looking for some salsa in their love lives.
+$.getJSON("http://api.yummly.com/v1/api/recipe/Hummus-and-grilled-zucchini-pizzas-356408?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe11");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/Vegan-Pizza-with-Cheeze-440089?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe21");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/Roasted-Zucchini-Flatbread-with-Hummus_-Arugula_-Goat-Cheese_-and-Almonds-Food-Network-258416?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe31");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe41");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe51");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
+
+var list = recipe.ingredientLines;
+var ul = document.getElementById("recipe61");
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+});
+
+
+</script>
+
+
+  <div class="wrap text-center">
+
+      <div class = "logo">
+        <a href="http://eatharmony.gdhacks.com/searchtest.html"><img src="images/EatHarmonyLogo.png" alt=""></a>
+      </div>
+
+      <h4 >
+        Are your single ingredients ready to mingle?
       </h4>
+
+      <div id="slides">
+        <div class="slides-container">
+          <div id="first">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <span id = "r1"></span><br />
+                  <img id = "i1"></span><br />
+                  <span id = "recipe1"></span><br /><br />
+                  <span id = "t1"> </span>
+      </div>
+      <div class="back">
+        <ul id = "recipe11"></ul>
+      </div>
     </div>
   </div>
 
-  <div class="footer">
-    Copyright &copy; Countable Irrationals&nbsp;&nbsp;|&nbsp;&nbsp;TartanHacks 2014
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+         <span id = "r2"></span><br />
+                  <img id = "i2"></span><br />
+                  <span id = "recipe2"></span><br />
+                  <span id = "t2"> </span>
+      </div>
+      <div class="back">
+       <ul id = "recipe21"></ul>
+      </div>
+    </div>
   </div>
 
-  <script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <span id = "r3"></span><br />
+                  <img id = "i3"></span><br />
+                  <span id = "recipe3"></span><br />
+                  <span id = "t3"> </span>
+      </div>
+      <div class="back">
+        <ul id = "recipe31"></ul>
+      </div>
+    </div>
+  </div>
 
-    redirectToLogin = function() {
-      window.location.href = "https://" + window.location.hostname + ":2083";
-    }
+      </div>
 
-  </script>
+<!--- SECOND PAGE -->
 
+          <div id="second">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <span id = "r4"></span><br />
+                  <img id = "i4"></span><br />
+                  <span id = "recipe4"></span><br />
+                  <span id = "t4"> </span>
+      </div>
+      <div class="back">
+        <!-- back content -->
+       <ul id = "recipe41"></ul>
+      </div>
+    </div>
+  </div>
 
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+       <span id = "r5"></span><br />
+                 <img id = "i5"></span><br />
+                  <span id = "recipe5"></span><br />
+                  <span id = "t5"> </span>
+        
+      </div>
+      <div class="back">
+        <!-- back content -->
+        <ul id = "recipe51"></ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <span id = "r6">
+                  <img id = "i6"></span><br />
+              <span id = "r6"></span><br />
+                  <span id = "recipe6"></span><br />
+                  <span id = "t6"> </span>
+        
+      </div>
+      <div class="back">
+  <ul id = "recipe61"></ul>
+      </div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div id="bottomBar">
+    <hr>
+      <form> 
+        <span><input type="text" id = "search" class="search rounded" placeholder="e.g. bananas, spinach,..."></span>
+      </form>
+</div>
 </body>
 </html>
