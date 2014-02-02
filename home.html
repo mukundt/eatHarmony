@@ -12,208 +12,10 @@
   <title>eatHarmony</title>
  <link rel="stylesheet" type="text/css" href="style.css">
  <link rel="icon" type="image/png" href="http://eatharmony.gdhacks.com/images/eHarmonyfavicon.png">
- <script src="superslides/dist/jquery.superslides.js" type="text/javascript"></script>
- <script type='text/javascript'>
-    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
-      $("form").ready(function(){
-        $("form").keypress(function(e) {
-            if(e.which == 13) {
-                e.preventDefault();
-                var ingreds = $("#search").val();
-                var ingredients = ingreds.split(',');
-                var url = parse(ingredients);
-                var ClassRecipe= function(data){
-                      this.id=data.id;
-                      this.ingredients=data.ingredients;
-                      this.recipeName=data.recipeName;
-                      this.image=data.smallImageUrls;
-                      this.time=data.totalTimeInSeconds;
-                    
-                 };
-       
-                       $.ajax({dataType: "jsonp",
-                      url: url,
-                      success: function(contents){
-                        
-                       var recipeNumber= contents.totalMatchCount;
-                       var recipeArray= new Array();
-                       
-                       for (var i=0; i<6; i++) {
-                         var singleRecipe=new ClassRecipe(contents.matches[i]);
-                         recipeArray.push(singleRecipe);
-                  }
-                  displayRecipes(recipeArray);
-                 
-
-
-
-
-
-},
-                  error: function(report, a, b){console.log(b);}
-                });
-
-                $(".wrap").animate({'margin-top': '0'}, 2000);
-                $(".logo").animate({'height':'50px','width':'80%','padding-top':'20px','padding-bottom':'0px'}, 1000);
-                $(".bottomBar").animate({'padding-bottom':'0px'},2000);                      
-                $("#slides").slideDown();
-                $("h4").fadeOut(); 
-
-                /*$("form").animate({top: $(document).height()/2}, 2000);*/
-            }
-        });
-      });
-
-      var titles = new Array("r1","r2","r3","r4","r5","r6");
-      var images = new Array("i1","i2","i3","i4","i5","i6");
-      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6");
-      var times = new Array("t1","t2","t3","t4","t5","t6")
-
-
-      function displayRecipes(recipeArray)
-      {
-        for (var i = 0; i < 6; i++)
-        {
-          var rec = recipeArray[i];
-          document.getElementById(titles[i]).innerHTML=rec.recipeName;
-          var ing = rec.ingredients;
-          var text = ""
-          for (var j = 0; j < ing.length; j++)
-          {
-            text = text + ing[j] + ", "
-          }
-          if (ingred.length > 0)
-          {
-            document.getElementById(ingred[i]).innerHTML=text;
-          document.getElementById(images[i]).src = rec.image[0];
-                $(function() {
-                  $(images[i]).width(200);
-                });
-          }
-          document.getElementById(times[i]).innerHTML="Time: " + parseFloat(rec.time/60).toString() + " min";
-          
-        }
-      }
-
-      function parse(ingred)
-      {
-        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&allowedIngredient[]='
-        for (var i = 0; i < ingred.length-1; i++)
-        {
-          var rec = ingred[i].trimLeft();
-          rec = rec.trimRight();
-          api = api + rec + '&allowedIngredient[]='
-        }
-        rec = ingred[ingred.length-1].trimLeft();
-        rec = rec.trimRight();
-        api = api + rec
-        return api
-      }
-    $(function() {
-      $("#slides").superslides({
-        hashchange: true,
-        animation_speed: 'slow' , pagination:false
-      });
-    });
-  </script>
+  
 </head>
 
 <body>
-
-<script>
-
-/*$.getJSON("http://api.yummly.com/v1/api/recipe/"+recipes[0].id+"?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-*/
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/Hummus-and-grilled-zucchini-pizzas-356408?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe11");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/Vegan-Pizza-with-Cheeze-440089?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe21");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/Roasted-Zucchini-Flatbread-with-Hummus_-Arugula_-Goat-Cheese_-and-Almonds-Food-Network-258416?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe31");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe41");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe51");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-$.getJSON("http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&callback=?", function(recipe) {
-
-var list = recipe.ingredientLines;
-var ul = document.getElementById("recipe61");
-
-for(var i=0; i<list.length; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-  }
-
-});
-
-
-</script>
-
 
   <div class="wrap text-center">
 
@@ -306,11 +108,11 @@ for(var i=0; i<list.length; i++) {
     </div>
   </div>
 
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
       <div class="front">
-        <span id = "r6">
-                  <img id = "i6"></span><br />
+       <span id = "r5"></span><br />
+                 <img id = "i6"></span><br />
               <span id = "r6"></span><br />
                   <span id = "recipe6"></span><br />
                   <span id = "t6"> </span>
@@ -333,4 +135,125 @@ for(var i=0; i<list.length; i++) {
       </form>
 </div>
 </body>
+
+ <script src="superslides/dist/jquery.superslides.js" type="text/javascript"></script>
+ <script type='text/javascript'>
+    <!-- document.getElementById(skdjgh 'hostname' ).innerText = window.location.hostname; -->
+      $("form").ready(function(){
+        $("form").keypress(function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                var ingreds = $("#search").val();
+                var ingredients = ingreds.split(',');
+                var url = parse(ingredients);
+                var ClassRecipe= function(data){
+                      this.id=data.id;
+                      this.ingredients=data.ingredients;
+                      this.recipeName=data.recipeName;
+                      this.image=data.smallImageUrls;
+                      this.time=data.totalTimeInSeconds;
+                    
+                 };
+       
+                       $.ajax({dataType: "jsonp",
+                      url: url,
+                      success: function(contents){
+                        
+                       var recipeNumber= contents.totalMatchCount;
+                       var recipeArray= new Array();
+                       
+                       for (var i=0; i<6; i++) {
+                         var singleRecipe=new ClassRecipe(contents.matches[i]);
+                         recipeArray.push(singleRecipe);
+                  }
+                  displayRecipes(recipeArray);
+                  setBackPanels(recipeArray);
+
+},
+                  error: function(report, a, b){console.log(b);}
+                });
+
+                $(".wrap").animate({'margin-top': '0'}, 2000);
+                $(".logo").animate({'height':'50px','width':'80%','padding-top':'20px','padding-bottom':'0px'}, 1000);
+                $(".bottomBar").animate({'padding-bottom':'0px'},2000);                      
+                $("#slides").slideDown();
+                $("h4").fadeOut(); 
+
+                /*$("form").animate({top: $(document).height()/2}, 2000);*/
+            }
+        });
+      });
+
+      var titles = new Array("r1","r2","r3","r4","r5","r6");
+      var images = new Array("i1", "i2", "i3", "i4", "i5", "i6");
+      var ingred = new Array("recipe1","recipe2","recipe3","recipe4","recipe5","recipe6");
+      var times = new Array("t1","t2","t3","t4","t5","t6");
+        var backRecs = new Array("recipe11", "recipe21", "recipe31", "recipe41", "recipe51", "recipe61");
+
+      function setBackPanels(recipeArray)
+	{
+        
+         for (var iter = 0; iter < 6; iter++)
+{
+          var rec = recipeArray[iter];
+	  var list = rec.ingredients;
+	  var ul = document.getElementById(backRecs[iter]);
+
+for(var i=0; i<list.length; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+  }
+
+}
+	}
+
+
+      function displayRecipes(recipeArray)
+      {
+        for (var i = 0; i < 6; i++)
+        {
+          var rec = recipeArray[i];
+          document.getElementById(titles[i]).innerHTML=rec.recipeName;
+          var ing = rec.ingredients;
+          var text = ""
+          for (var j = 0; j < ing.length; j++)
+          {
+            text = text + ing[j] + ", "
+          }
+         
+            //document.getElementById(images[i]).src = rec.image[0];
+         document.getElementById(images[i]).src = rec.image[0];
+                $(function() {
+                  $(images[i]).width(200);
+                });
+          
+          document.getElementById(times[i]).innerHTML="Time: " + parseFloat(rec.time/60).toString() + " min";
+          
+        }
+      }
+
+      function parse(ingred)
+      {
+        var api = 'http://api.yummly.com/v1/api/recipes?_app_id=0f21d51f&_app_key=35ffecab7995ec9425116d3cd465713f&allowedIngredient[]='
+        for (var i = 0; i < ingred.length-1; i++)
+        {
+          var rec = ingred[i].trimLeft();
+          rec = rec.trimRight();
+          api = api + rec + '&allowedIngredient[]='
+        }
+        rec = ingred[ingred.length-1].trimLeft();
+        rec = rec.trimRight();
+        api = api + rec
+        return api
+      }
+    $(function() {
+      $("#slides").superslides({
+        hashchange: true,
+        animation_speed: 'slow' , pagination:false
+      });
+    });
+</script>
+
 </html>
