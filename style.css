@@ -13,11 +13,15 @@ body {
 }
 
 #r1,#r2,#r3,#r4,#r5 {
-  font-weight:500;
-  font-size:20px;
-  text-decoration:underline;
-  line-height:25px;
+  font-weight:600;
+  font-size:23px;
+  line-height:40px;
 
+}
+
+#i1,i2,i3,i4,i5,i6 {
+  width:300px;
+  padding:10px;
 }
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-weight:normal;line-height:1.1;color:#333}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
