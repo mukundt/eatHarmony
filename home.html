@@ -34,7 +34,7 @@
                        $.ajax({dataType: "jsonp",
                       url: url,
                       success: function(contents){
-                        debugger;
+                        
                        var recipeNumber= contents.totalMatchCount;
                        var recipeArray= new Array();
                        
@@ -43,6 +43,7 @@
                          recipeArray.push(singleRecipe);
                   }
                   displayRecipes(recipeArray);
+                 
 
 
 
